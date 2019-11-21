@@ -30,19 +30,18 @@ public class RegistroController {
 
 	@Autowired
 	private IMecanicoService mS;
-
-	@Autowired
-	private IRolService rS;
 	
 	@Autowired
 	private IAdminService aS;
+
+	@Autowired
+	private IRolService rS;
 
 	@Autowired
 	private BCryptPasswordEncoder encoder;
 
 	@GetMapping("/nuevo")
 	public String nuevoUsuario(Model model) {
-
 		model.addAttribute("usuario", new Usuario());
 		model.addAttribute("listaRoles", rS.list());
 		return "/registro";
